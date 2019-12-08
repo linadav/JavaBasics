@@ -1,4 +1,4 @@
-package JavaPrograms;
+package JavaStep1;
 
 import java.math.BigInteger;
 
