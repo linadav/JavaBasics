@@ -1,17 +1,24 @@
-package JavaStep2;
+package JavaStep3.Task4_Polindrom;
 
-
+import java.util.Arrays;
 import java.util.Scanner;
 
-public class Task8_Echo {
+public class PolindromMain {
     public static void main(String[] args) {
-
         Scanner symbolIn = new Scanner(System.in);
+        String wordAround;
         boolean ciklas = true;
         while (ciklas) {
             System.out.println("Iveskite simboliu seka arba zodi:  ");
-            String symbol = symbolIn.nextLine();
-            System.out.println("You entered " + symbol + ' ' + turnTheStringAround(symbol));
+            String word = symbolIn.nextLine();
+            wordAround = turnTheStringAround(word);
+            System.out.println("You entered " + word + ' ' + wordAround);
+
+            if (checkPolindrom(word, wordAround)) {
+                System.out.println("Žodis yra polindromas!");
+            } else {
+                System.out.println("Žodis nėra polindromas!");
+            }
 
             System.out.println("Would you like to continue? y/n");
             String answer = symbolIn.nextLine();
@@ -21,7 +28,12 @@ public class Task8_Echo {
         }
     }
 
+    private static boolean checkPolindrom(String word, String wordAround) {
+        return word.equals(wordAround);
+    }
+
     private static String turnTheStringAround(String input) {
+
         // convert String to character array
         // by using toCharArray
         int N = input.length();
@@ -30,8 +42,8 @@ public class Task8_Echo {
         //for (int i = N ; i >= 0; i--)
 
         for (int i = 0; i < inputCharArr.length; i++) {
-            inputCharArrReversed[N-1 - i] = inputCharArr[i];
-            System.out.print(inputCharArr[N -1 - i]);
+            inputCharArrReversed[N - 1 - i] = inputCharArr[i];
+            System.out.print(inputCharArr[N - 1 - i]);
         }
         //input.getChars(0, N, inputCharArrReversed, 0);
         System.out.println();
@@ -61,6 +73,5 @@ public class Task8_Echo {
         String inputOut = result.toString();
         return inputOut;
     }
-
- */
+     */
 }
