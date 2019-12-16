@@ -7,7 +7,7 @@ public class TicTacToeMain {
     public static void main(String[] args) {
         String[][] stringsArr = new String[3][3];
         int[] coord = new int[2];
-        int[] coordComp = new int[2];
+        int[] coordComp;
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
@@ -43,8 +43,12 @@ public class TicTacToeMain {
             }
 
             if (iCycle == 5) {
-                continueGame = false;
-                System.out.println("Niekas nelaimejo. Ačiū už žaidimą!");
+                if (! continueGame){
+                    System.out.println("Jūs laimėjote paskutiniu ėjimu!");
+                } else {
+                    continueGame = false;
+                    System.out.println("Niekas nelaimejo. Ačiū už žaidimą!");
+                }
             }
         }
     }
@@ -98,7 +102,7 @@ public class TicTacToeMain {
     public static boolean checkCoordinates(String[][] stringArr, int[] inputCoordinates) {
         int i = inputCoordinates[0];
         int j = inputCoordinates[1];
-        if (i<3 && j<3 && stringArr[i][j].equals(" ")) {
+        if (i<3 && j<3 && i>-1 && j>-1 && stringArr[i][j].equals(" ")) {
             return false;
         } else {
             System.out.println("Neteisingos koordinates!");
